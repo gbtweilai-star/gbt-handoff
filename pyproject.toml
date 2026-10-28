@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gbt-handoff"
+version = "1.0.0"
+description = "GBT V8 capability bit: handoff (system). Contract, validation and CLI."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "GBT V8 contributors" }]
+keywords = ["gbt", "capability", "agent", "system", "handoff"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+gbt-handoff = "gbt_handoff.cli:main"
+
+[project.urls]
+Atlas = "https://github.com/gbtweilai-star/gbt-caps/blob/main/caps/system/handoff.md"
+Index = "https://github.com/gbtweilai-star/gbt-caps"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "--tb=short"
